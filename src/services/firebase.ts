@@ -1,5 +1,7 @@
 import firebase from 'firebase/app';
-import 'firebase/auth'
+// eslint-disable-next-line import/no-duplicates
+import 'firebase/auth';
+// eslint-disable-next-line import/no-duplicates
 import 'firebase/database';
 
 const firebaseConfig = {
@@ -11,16 +13,10 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
 };
-// const firebaseConfig = {
-//   apiKey: "AIzaSyD5d5yRW6YBl_B2obGIo21cDReGtjvSgGg",
-//   authDomain: "letmeask-4134e.firebaseapp.com",
-//   databaseURL: "https://letmeask-4134e-default-rtdb.firebaseio.com",
-//   projectId: "letmeask-4134e",
-//   storageBucket: "letmeask-4134e.appspot.com",
-//   messagingSenderId: "321958235745",
-//   appId: "1:321958235745:web:e220e7e04f98af7ab26420"
-// };
+
 firebase.initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
-export const database = firebase.database();
+const auth = firebase.auth();
+const database = firebase.database();
+
+export { firebase, auth, database };

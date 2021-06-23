@@ -1,14 +1,19 @@
-import React, {useState} from 'react';
+import React, { createContext } from 'react';
+import './services/firebase';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import './services/firebase'
+import './styles/global.scss';
 
-function App() {
-  const [num, setNum] = useState(0);
+import { Home } from './pages/Home';
+import { NewRoom } from './pages/NewRoom';
+
+const App: React.FC = () => {
   return (
-    
-    <button onClick={() => {
-      setNum(num + 1)}}>{num}</button>
+    <BrowserRouter>
+      <Route path="/" exact component={Home} />
+      <Route path="/rooms/new" exact component={NewRoom} />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
