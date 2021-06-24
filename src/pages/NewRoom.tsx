@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../hooks/auth';
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
@@ -9,6 +10,7 @@ import { Button } from '../components/Button';
 import '../styles/auth.scss';
 
 export const NewRoom: React.FC = () => {
+  const { user } = useAuth();
   return (
     <div id="page-auth">
       <aside>

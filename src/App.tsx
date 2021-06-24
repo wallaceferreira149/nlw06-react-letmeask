@@ -1,19 +1,21 @@
-import React, { createContext } from 'react';
-import './services/firebase';
+import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
+import { AuthContextProvider } from './hooks/auth';
 import './styles/global.scss';
 
 import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
 
-const App: React.FC = () => {
+function App() {
   return (
     <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/rooms/new" exact component={NewRoom} />
+      <AuthContextProvider>
+        <Route path="/" exact component={Home} />
+        <Route path="/rooms/new" exact component={NewRoom} />
+      </AuthContextProvider>
     </BrowserRouter>
   );
-};
+}
 
 export default App;
